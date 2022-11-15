@@ -17,7 +17,7 @@
 
 import type { Shape } from '../1-Basics/2-Composition-with-unions-and-intersections';
 
-import { shapeIsRectangularCuboid, shapeIsSphere } from '../2-Everyday-types/4-Differentiation-at-runtime';
+import { shapeIsRectangularCuboid, shapeIsSphere } from '../2-Everyday-types/5-Differentiation-at-runtime';
 
 /**
  * Each JavaScript `Symbol` gets a unique type.

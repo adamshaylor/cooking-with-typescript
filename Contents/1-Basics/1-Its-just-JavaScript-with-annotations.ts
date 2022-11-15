@@ -5,10 +5,10 @@
  * 
  * Inspect the types of these variables. TypeScript is already at work.
  * Notice that TypeScript is smart enough to know that the value of `a`
- * will never change, whereas `ab` and `abc` are `string` because they
- * could be reassigned some other value.
+ * is a primitive that will never change, whereas `ab` and `abc` are
+ * `string` because they could be reassigned some other value.
  * 
- * This is called *type inference*.
+ * This process is called *type inference*.
  */
 
 const a = 'a';
@@ -22,39 +22,45 @@ var abc = ab + 'c';
  * stacks from which runtime type errors emanate.
  * 
  * This line is commented out because it won't compile. Can you see
- * why?
+ * why not?
  */
 
 // abc = 123;
 
 /**
- * We can add annotations to variables, Sometimes they're redundant
- * because they're trivially inferred...
+ * We can add annotations to variables. Sometimes they're redundant
+ * because they can be trivially inferred...
  */
 
 const abcd: string = abc + 'd';
 
 /**
  * ...but sometimes annotations are necessary because we may want to
- * assign a different type of value to it later.
+ * assign a value to it later.
  */
 
-let id: number | null = null;
+let id: number;
+
+/**
+ * Notice that TypeScript saves us from using a declared variable
+ * before its value has been assigned.
+ */
+
+// let nextId = id + 1;
+
 id = 5;
 
 /**
- * Now why won't this compile?
- */
-
-// const getNextId = () => id + 1;
-
-/**
- * Annotations are especially useful in functions. What happens if we
- * try to return something other than a string?
+ * Annotations are especially useful in functions.
  */
 
 const stringifyNumber = (number: number): string =>
   String(number);
+
+/**
+ * What would happen to that function if we tried to return something
+ * other than a string?
+ */
 
 /**
  * These are TypeScript type *aliases*. The compiler erases them from
@@ -66,9 +72,10 @@ type Name = string
 type Id = number
 
 /**
- * Bear in mind that TypeScript types are based on shape. It will treat
- * logically identical types with different types as if they were the
- * same. In this case, `Id` and `number` are the same thing.
+ * Bear in mind that TypeScript types are structural, meaning that two
+ * types with different names will be treated the same if they are
+ * structurally identical. In this case, `Id` and `number` are the same
+ * thing.
  */
 
 const getNextId = (currentId: Id): Id =>
@@ -78,7 +85,8 @@ const four = getNextId(3);
 
 /**
  * This is an *interface*. It describes an object or class. Interfaces
- * can be shared across modules with the `export` operator.
+ * and type aliases can be shared across modules with the `export`
+ * operator.
  */
 
 export interface Person {
@@ -88,7 +96,7 @@ export interface Person {
 
 /**
  * Most interfaces can also be expressed as type aliases. The
- * language's designers describe the subtle differences here and how to
+ * language's designers describe the subtle differences and how to
  * choose between them here:
  * 
  * https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#differences-between-type-aliases-and-interfaces
@@ -147,11 +155,12 @@ const negativeFivePointFifthLightOk = okToGo(-5.5);
 
 /**
  * TypeScript can read the types of a module's export values if they're
- * either written in TypeScript or have a type declaration file.
+ * either written in TypeScript or have a type declaration (`.d.ts`)
+ * file.
  * 
  * Note that if you do not write a TypeScript file in a known module
- * format (i.e. with an `export`), it will assume all your top level
- * declarations are global.
+ * format (i.e. with an `import` or `export`), it will assume all your
+ * top level declarations are global.
  */
 
 export {

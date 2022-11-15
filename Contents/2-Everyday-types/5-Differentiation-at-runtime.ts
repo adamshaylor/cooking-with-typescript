@@ -2,8 +2,9 @@ import type { RectangularCuboid, Shape, Sphere } from '../1-Basics/2-Composition
 
 /**
  * Sometimes we need to write functions that accept unions of object
- * types. Remember in this case that `Shape` is just such a union of
- * different object types with different properties.
+ * types. Remember that earlier we defined `Shape` as a union of
+ * `RectangularCuboid` and `Sphere`, two interfaces with different
+ * properties.
  */
 
 const getWidth = (shape: Shape): number => {
@@ -29,6 +30,11 @@ const getWidth = (shape: Shape): number => {
  * When we have a lot of similar type narrowing to do over a lot of
  * union members, it can be helpful to write functions that use the
  * `is` return type.
+ * 
+ * The drawback to the `is` operator is that it’s something of a
+ * hold-my-beer feature. We're telling TypeScript to trust us that
+ * we've narrowed the type adequately. As of TypeScript 4.8, it does
+ * not verify that we have.
  */
 
 export const shapeIsRectangularCuboid = (shape: Shape): shape is RectangularCuboid =>
@@ -60,8 +66,13 @@ const getMaxDimension = (shape: Shape): number => {
   /**
    * Now that we've done that, though, TypeScript wants us to
    * explicitly handle the case where `shape` does not match anything.
-   * Here, the type of `shape` is `never`. We can return some arbitrary
-   * number like `-1`, but it's best in these cases to throw an error.
+   * This avoids the mystery of implicitly returning `undefined` if the
+   * function is passed a bad type at runtime.
+   * 
+   * We could appease the compiler by returning some arbitrary number
+   * like `-1`, but it's best in these cases to throw an error.
+   * 
+   * Not that at this point in our code, `typeof shape` is `never`.
    */
 
   // throw new TypeError('shape not recognized');

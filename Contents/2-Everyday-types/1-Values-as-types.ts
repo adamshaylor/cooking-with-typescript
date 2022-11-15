@@ -1,6 +1,6 @@
 /**
  * A common pattern in JavaScript applications is to have a file of
- * constants. One useful thing TypeScript can do is treat primative
+ * constants. One useful thing TypeScript can do is treat primitive
  * constant values as types.
  */
 
@@ -56,7 +56,9 @@ type ImmutablePalette = typeof immutablePalette;
  * Having value constants is helpful in situations like this, where we
  * need to map constants in an object to other values. We can start by
  * constructing a union type based on the values of `ImmutablePalette`.
- * Notice how duplicates are handled.
+ * 
+ * Notice how we have three keys in `ImmutablePalette` but only two
+ * unique values.
  */
 
 type Color = ImmutablePalette[keyof ImmutablePalette];

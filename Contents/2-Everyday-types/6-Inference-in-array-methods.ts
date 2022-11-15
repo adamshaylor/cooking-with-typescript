@@ -1,4 +1,4 @@
-import { shapeIsSphere } from './4-Differentiation-at-runtime';
+import { shapeIsSphere } from './5-Differentiation-at-runtime';
 import { RectangularCuboid, Shape, Sphere } from '../1-Basics/2-Composition-with-unions-and-intersections';
 
 /**
@@ -10,9 +10,9 @@ import { RectangularCuboid, Shape, Sphere } from '../1-Basics/2-Composition-with
  * types of the functions that use these array methods can be inferred.
  */
 
-const findA = (strings: string[]) =>
+const findFirstContainingLetterA = (strings: string[]) =>
   strings.find(string =>
-    string === 'a'
+    string.includes('a')
   );
 
 const incrementArrayImmutably = (numbers: number[]) =>
@@ -25,9 +25,9 @@ const incrementArrayMutably = (numbers: number[]) =>
     number + 1
   );
 
-const filterAs = (strings: string[]) =>
+const findAllContainingLetterA = (strings: string[]) =>
   strings.filter(string =>
-    string === 'a'
+    string.includes('a')
   );
 
 const sum = (numbers: number[]) =>

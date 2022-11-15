@@ -6,14 +6,16 @@
 let hello: string | null = 'hi';
 
 /**
- * We can do this because TypeScript can see its type hasn't changed.
+ * We can treat `hello` as a string here because TypeScript can infer
+ * that its value has not been reassigned to `null`.
  */
 
 console.log(hello.length);
 
 /**
- * ...But we can't do this. TypeScript knows that `hello` could be set
- * be set to `null` later.
+ * ...But we can't do that in a function closure. TypeScript knows that
+ * `hello` could be set be set to `null` by the time the function is
+ * called.
  */
 
 // function logHelloLength() {
@@ -43,15 +45,16 @@ export type Shape = RectangularCuboid | Sphere
 
 /**
  * A type can also be one thing *and* another. This is called an
- * *intersection type*.
+ * *intersection type*. It's useful when composing types from other
+ * types. Composition over inheritance, as they say.
  */
 
-interface Animal {
+export interface Animal {
   genus: string
   species: string
 }
 
-type Pet = Animal & {
+export type Pet = Animal & {
   name: string
   favoriteFood: string
 }

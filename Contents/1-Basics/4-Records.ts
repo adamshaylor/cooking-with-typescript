@@ -16,36 +16,41 @@ const numbersToNames: Record<number, string> = {
 };
 
 /**
- * Records can also enforce completeness for records whose keys are
- * unions.
+ * Records can also enforce completeness for those of which their keys
+ * are unions.
  */
 
-type State = 'OR' | 'WA' | 'CA'
+type UsaStateCode = 'OR' | 'WA' | 'CA'
 
 /**
  * What happens if we remove one of these properties or add a state
- * that isn't in the `State` union type?
+ * that isn't in the `UsaStateCode` union type?
  */
 
-const stateAnimals: Record<State, string> = {
+const usaStateAnimals: Record<UsaStateCode, string> = {
   OR: 'Beaver',
   WA: 'Marmot',
   CA: 'Bear'
 };
 
-const oregonAnimal = stateAnimals.OR;
+const oregonAnimal = usaStateAnimals.OR;
 
 /**
- * If we don't want to enforce completeness, we can use `Partial`.
+ * If we don't want to enforce completeness, we can use the `Partial`
+ * utility type. TypeScript has a lot of great utility types, many of
+ * which are particularly useful with records:
+ * 
+ * https://www.typescriptlang.org/docs/handbook/utility-types.html
  */
 
-const someStateAnimals: Partial<Record<State, string>> = {
+const someStateAnimals: Partial<Record<UsaStateCode, string>> = {
   WA: 'Marmot'
 };
 
 /**
  * We still get the benefit of knowing what the valid keys for the
- * object are, but their values could be `undefined`.
+ * object are and TypeScript correctly warns us their values could be
+ * `undefined`.
  */
 
 const maybeOregonAnimal = someStateAnimals.OR;
@@ -53,7 +58,7 @@ const maybeOregonAnimal = someStateAnimals.OR;
 /**
  * The definition of `Record<K, V>` is not particularly complex. We
  * could invent it ourselves if it wasn't already baked into TypeScript
- * as a utility type.
+ * as a utility type itself.
  */
 
 type ValidObjectKey = string | number | symbol
