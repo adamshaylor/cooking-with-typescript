@@ -47,6 +47,7 @@ const divide = (dividend: number, divisor: number): Result<number> => {
  */
 
 const numbersToDivide: Array<readonly [ number, number ]> = [
+  [ 0, 0 ],
   [ 0, 1 ],
   [ 1, 2 ],
   [ 2, 3 ],
