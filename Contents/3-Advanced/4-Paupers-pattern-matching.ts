@@ -47,11 +47,11 @@ const otherwise = <Input, Output>(
 const match = <Output>(...lazyConditionalBindings: [ ...Lazy<Maybe<Output>>[], Lazy<Output> ]): Output => {
   const lazyOutputs = lazyConditionalBindings.slice(0, -1) as Lazy<Maybe<Output>>[];
   const lazyDefaultOutput = lazyConditionalBindings.slice(-1)[0] as Lazy<Output>;
-  let maybOutput: Maybe<Output> = unmatched;
+  let maybeOutput: Maybe<Output> = unmatched;
   for (let lazyOutput of lazyOutputs) {
-    maybOutput = lazyOutput();
-    if (maybOutput !== unmatched) {
-      return maybOutput;
+    maybeOutput = lazyOutput();
+    if (maybeOutput !== unmatched) {
+      return maybeOutput;
     }
   }
   return lazyDefaultOutput();

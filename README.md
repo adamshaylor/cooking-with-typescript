@@ -4,7 +4,9 @@
 
 ## Purpose
 
-Ever since I discovered the Elm programming language, I’ve been inspired by the idea of [making impossible states impossible](https://www.youtube.com/watch?v=IcgmSRJHu_8). Elm's designers pride themselves on having produced a language from which (nearly) no runtime exceptions can occur. After completing a year-long project in TypeScript, we logged runtime exceptions on the front-end as well as the back-end. For the first time in my career as a web developer, I saw front-end runtime exceptions and bug reports dip far below the back-end. In fact, there have been almost none other than ones I threw intentionally for logging purposes. I therefore believe that, used properly, a TypeScript codebase can achieve nearly the level of quality that Elm does.
+Ever since I discovered the Elm programming language, I’ve been inspired by the idea of [making impossible states impossible](https://www.youtube.com/watch?v=IcgmSRJHu_8). Elm's designers pride themselves on having produced a language in which (nearly) no runtime exceptions can occur.
+
+I recently completed a year-long project in TypeScript. My aim was to achieve similar levels of type safety without compromising JavaScript’s expressiveness as a semi-functional language. After we launched, for the first time in my career as a web developer, I saw front-end runtime exceptions and bug reports dip far below the back-end. In fact, there have been almost none other than ones we threw intentionally for logging purposes. I therefore believe that, used properly, a TypeScript codebase can achieve nearly the level of quality that Elm does.
 
 TypeScript is a superset of JavaScript and is designed for incremental adoption. This is a strength in that the cost of adopting *some* TypeScript in an organization or existing codebase is virtually zero. But it’s also a weakness in that the benefits of TypeScript vary wildly from one code base to another. Getting Elm levels of code quality does not come for free.
 
@@ -22,8 +24,8 @@ This is not for first-time programmers. I am doubtful as to whether TypeScript m
 
 The tools we’ll need are:
 
-1. An editor and possibly an extension for it that support TypeScript. Visual Studio Code comes with TypeScript support out of the box, but there are many others you can use. A list of editor support for TypeScript can be found [here on TypeScript’s wiki](https://github.com/Microsoft/TypeScript/wiki/TypeScript-Editor-Support).
-2. Node.js. See the `engines` field in `package.json` for version compatibility.
+1. **An editor** and possibly an extension for it that support TypeScript. Visual Studio Code comes with TypeScript support out of the box, but there are many others you can use. A list of editor support for TypeScript can be found [here on TypeScript’s wiki](https://github.com/Microsoft/TypeScript/wiki/TypeScript-Editor-Support).
+2. **Node.js.** See the `engines` field in `package.json` for version compatibility.
 
 After cloning this repository, we’ll need to install dependencies, which should be mainly limited to TypeScript itself:
 

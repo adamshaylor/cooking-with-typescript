@@ -150,7 +150,7 @@ const okToGo = (stoplightColor: StoplightColor): boolean =>
  * not bring them up again.
  */
 
-const ninetyNinethLightOk = okToGo(99);
+const ninetyNinthLightOk = okToGo(99);
 const negativeFivePointFifthLightOk = okToGo(-5.5);
 
 /**
