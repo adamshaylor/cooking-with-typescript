@@ -3,7 +3,7 @@
  * element.
  */
 
-type WordCount = [ string, number ]
+type WordCount = [ word: string, count: number ]
 
 /**
  * So we can do this...
