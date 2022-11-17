@@ -1,6 +1,6 @@
 # Cooking with TypeScript
 
-*A collection of patterns for TypeScript 4.8*
+*A collection of patterns for TypeScript 4.9*
 
 ## Purpose
 
@@ -33,6 +33,8 @@ npm install
 ```
 
 Now we should be able to browse through and play with the contents with the benefit of inline TypeScript code hints.
+
+**Note:** It may be necessary to configure your editor to use the workspace version of TypeScript instead of a global version. I added `.vscode` setting to make this work for VS Code users automatically.
 
 ## Configuration
 

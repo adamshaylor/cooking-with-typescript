@@ -45,13 +45,14 @@ type Routes = {
 }
 
 /**
- * Now we have rigorously defined routes. The names are all just
- * strings at runtime, but they're type-safe strings.
+ * Now let's build an object constant that *satisfies* our `Routes`
+ * type but still allows us to treat its contents as a type.
  */
 
-const routes: Routes = {
+const routes = {
   /**
-   * Now there's no way we can make this kind of copy-paste error!
+   * This is where our generic `Route` comes in handy. There's no way
+   * we can make this sort of copy/paste error.
    */
   // login: {
   //   name: 'logout',
@@ -78,4 +79,17 @@ const routes: Routes = {
     iconName: 'house',
     publicTitle: 'Home'
   }
-};
+} as const satisfies Routes;
+
+/**
+ * Now we can dynamically generate path types to ensure that all the
+ * links inside our app work...
+ */
+
+type Path = (typeof routes)[RouteName]['path'];
+
+/**
+ * ...and save ourselves from typos like this.
+ */
+
+// const logoutLink: Path = '/loguot';
