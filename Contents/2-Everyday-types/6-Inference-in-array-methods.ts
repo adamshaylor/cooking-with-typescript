@@ -20,7 +20,7 @@ const incrementArrayImmutably = (numbers: number[]) =>
     number + 1
   );
 
-export const incrementArrayMutably = (numbers: number[]) =>
+const incrementArrayMutably = (numbers: number[]) =>
   numbers.forEach((_, index) =>
     numbers[index] += 1
   );
