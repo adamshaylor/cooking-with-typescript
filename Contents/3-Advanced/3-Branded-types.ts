@@ -1,5 +1,4 @@
 import type { Sphere } from '../1-Basics/2-Composition-with-unions-and-intersections';
-import { Result } from '../2-Everyday-types/7-Result';
 
 /**
  * TypeScript doesn't care what the name of a type is. Its type system
