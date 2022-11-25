@@ -2,6 +2,7 @@
   "name": "cooking-with-typescript",
   "version": "0.0.0",
   "description": "A collection of patterns for TypeScript 4.9",
+  "type": "module",
   "scripts": {
     "build": "tsc",
     "preversion": "npm run build",
