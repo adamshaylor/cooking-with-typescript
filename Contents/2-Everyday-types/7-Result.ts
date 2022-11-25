@@ -67,5 +67,5 @@ const divisionResults = numbersToDivide.map(([ dividend, divisor ]) =>
 const divisionErrors = divisionResults.filter(resultIsError);
 if (divisionErrors.length) {
   const errors = divisionErrors.map(result => result.error);
-  throw errors;
+  throw new Error('Some division operations failed', { cause: errors });
 }
