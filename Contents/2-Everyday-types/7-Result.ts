@@ -1,7 +1,7 @@
 /**
  * A `Result` is a concept borrowed from Elm, which in turn probably
  * got it from Haskell. It encourages returning error data instead of
- * throwing them, which breaks the flow of execution.
+ * throwing errors, which breaks the flow of execution.
  */
 
 export interface OkResult<ResultData> {
@@ -59,9 +59,9 @@ const divisionResults = numbersToDivide.map(([ dividend, divisor ]) =>
 );
 
 /**
- * And if we really want to throw, we can throw errors for the whole
- * operation so we can see all the points of failure, not just the
- * first one.
+ * If we really want to throw errors, we can throw them in an
+ * aggregated fashion so we can see all the points of failure, not
+ * just the first one.
  */
 
 const divisionErrors = divisionResults.filter(resultIsError);

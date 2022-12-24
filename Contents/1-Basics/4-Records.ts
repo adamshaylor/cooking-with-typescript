@@ -1,5 +1,5 @@
 /**
- * Records are the workhorse of TypeScript. They can quickly define an
+ * Records are the workhorses of TypeScript. They can quickly define an
  * object type with two generic arguments: the type of the keys and the
  * type of the values. They're particularly useful when creating
  * objects that map one value to another, sometimes called
@@ -16,8 +16,8 @@ const numbersToNames: Record<number, string> = {
 };
 
 /**
- * Records can also enforce completeness for those of which their keys
- * are unions.
+ * Records can also enforce completeness when their keys are defined as
+ * unions.
  */
 
 type UsaStateCode = 'OR' | 'WA' | 'CA'
@@ -58,7 +58,7 @@ const maybeOregonAnimal = someStateAnimals.OR;
 /**
  * The definition of `Record<K, V>` is not particularly complex. We
  * could invent it ourselves if it wasn't already baked into TypeScript
- * as a utility type itself.
+ * as a utility type.
  */
 
 type ValidObjectKey = string | number | symbol

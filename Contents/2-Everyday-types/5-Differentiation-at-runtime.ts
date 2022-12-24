@@ -11,7 +11,7 @@ const getWidth = (shape: Shape): number => {
   if ('radius' in shape) {
     /**
      * `Sphere` is the only shape in the union that meets the condition
-     * of this block because its the only object with a `radius`
+     * of this block because it's the only object with a `radius`
      * property. TypeScript will therefore treat `shape` as a `Sphere`
      * in this scope. This is called called *type narrowing*.
      */
@@ -34,7 +34,7 @@ const getWidth = (shape: Shape): number => {
  * The drawback to the `is` operator is that it’s something of a
  * hold-my-beer feature. We're telling TypeScript to trust us that
  * we've narrowed the type adequately. As of TypeScript 4.8, it does
- * not verify that we have.
+ * not verify that we have actually done so.
  */
 
 export const shapeIsRectangularCuboid = (shape: Shape): shape is RectangularCuboid =>
@@ -72,7 +72,7 @@ const getMaxDimension = (shape: Shape): number => {
    * We could appease the compiler by returning some arbitrary number
    * like `-1`, but it's best in these cases to throw an error.
    * 
-   * Not that at this point in our code, `typeof shape` is `never`.
+   * Note that at this point in our code, `typeof shape` is `never`.
    */
 
   // throw new TypeError('shape not recognized');

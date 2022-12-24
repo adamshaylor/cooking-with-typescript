@@ -3,7 +3,7 @@
  * pattern matching in TypeScript. Practically speaking, there are few
  * advantages to this implementation over traditional if/else-based
  * type narrowing. The only one of note is that it enforces a specific
- * flow akin to case blocks, but without the break/flow-through
+ * flow akin to case blocks, but without the `break`/flow-through
  * footgun.
  * 
  * TC39 is working on a language-level implementation of pattern
@@ -68,7 +68,7 @@ const match = <Output>(...lazyConditionalBindings: [ ...Lazy<Maybe<Output>>[], L
 const getMaxDimension = (shape: Shape): number =>
   match(
     /**
-     * Observe that the type of shape has been narrowed...
+     * Observe that the type of `shape` has been narrowed...
      */
     when(shape, shapeIsSphere, shape => shape.radius * 2),
     /**

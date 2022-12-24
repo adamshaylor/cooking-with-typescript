@@ -5,9 +5,10 @@ import { RectangularCuboid, Shape, Sphere } from '../1-Basics/2-Composition-with
  * `Array.prototype.map()`, `.filter()`, and `.reduce()` were my
  * introduction to the world of functional programming. I still make
  * heavy use them today, along with the many other native methods that
- * come with `Array`. TypeScript can infer those method arguments and
- * return types based on the type of its elements. Even the return
- * types of the functions that use these array methods can be inferred.
+ * come with `Array`. TypeScript can infer those methods' arguments and
+ * return types based on the type of the array's elements. Even the
+ * return types of functions that use these array methods can be
+ * inferred.
  */
 
 const findFirstContainingLetterA = (strings: string[]) =>
@@ -70,8 +71,8 @@ const doubleRectangularCuboidDimensions = (cuboid: RectangularCuboid): Rectangul
 /**
  * In spite of the complexity, inference still works here, both in the
  * arguments passed to the the `map()` callback and even the return
- * type of our function. The return type is equivalent to `Shape`, even
- * if it isn't so named.
+ * type of our function. The return type is equivalent to `Shape[]`,
+ * even if it isn't so named.
  * 
  * Try adding another interface to the `Shape` union. Does inference
  * and narrowing adequately protect us from an unresolved ambiguity

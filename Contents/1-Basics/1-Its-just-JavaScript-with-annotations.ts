@@ -18,7 +18,7 @@ var abc = ab + 'c';
 /**
  * What makes TypeScript useful is saving us from type ambiguity at
  * compile time. When working on a prototype or a very small project,
- * such ambiguities are tolerable. As projects grow, so to do the call
+ * such ambiguities are tolerable. As projects grow, so too do the call
  * stacks from which runtime type errors emanate.
  * 
  * This line is commented out because it won't compile. Can you see
@@ -36,7 +36,7 @@ const abcd: string = abc + 'd';
 
 /**
  * ...but sometimes annotations are necessary because we may want to
- * assign a value to it later.
+ * assign a value to a variable later.
  */
 
 let id: number;

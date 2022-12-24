@@ -54,7 +54,7 @@ type ImmutablePalette = typeof immutablePalette;
 
 /**
  * Having value constants is helpful in situations like this, where we
- * need to map constants in an object to other values. We can start by
+ * need to map properties in an object to other values. We can start by
  * constructing a union type based on the values of `ImmutablePalette`.
  * 
  * Notice how we have three keys in `ImmutablePalette` but only two

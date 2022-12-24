@@ -1,6 +1,6 @@
 /**
  * Using recursion with tuples is a deep, deep rabbit hole. The basic
- * pattern looks like this, but you can do a _lot_ more with them.
+ * pattern looks like this, but you can do a _lot_ more with it.
  */
 
 type ReverseTuple<Tuple> = Tuple extends []

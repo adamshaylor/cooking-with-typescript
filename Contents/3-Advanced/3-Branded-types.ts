@@ -4,8 +4,9 @@ import type { Sphere } from '../1-Basics/2-Composition-with-unions-and-intersect
  * TypeScript doesn't care what the name of a type is. Its type system
  * is structural, meaning that two types with different names are
  * treated the same so long as their structure is the same. This can
- * be useful for interoperability purposes, but can also a problem when
- * we need to distinguish between two structurally equivalent values.
+ * be useful for interoperability purposes, but can also be a problem
+ * when we need to distinguish between two structurally equivalent
+ * values.
  * 
  * Revisiting our `Sphere` for example...
  */
@@ -17,16 +18,15 @@ const sphere: Sphere = {
 };
 
 /**
- * How is anyone consuming `sphere` supposed to know that it's in
- * inches? And even if they did know, what's to stop them from making
- * a mistake and applying the wrong unit?
+ * How is anyone consuming `sphere` supposed to know that its `radius`
+ * is in inches? And even if they did know, what's to stop them from
+ * making a mistake and applying the wrong unit?
  */
 
 const radiusInCentimeters = 100;
 sphere.radius = radiusInCentimeters;
 
  /**
- * 
  * The most common workaround in TypeScript is called *branded types*.
  * The approach is described and criticized in this article, which
  * contrasts branded types with Elm's natively supported *opaque*
@@ -52,10 +52,10 @@ declare const centimetersBrand: unique symbol;
 type Centimeters = Brand<number, typeof centimetersBrand>
 
 /**
- * Here comes the magic of branding ("magic" in both the ). We're
- * pretending with the `as` operator that there's an extra `__brand`
- * property on this type at compile time that does not actually exist
- * at runtime.
+ * Here comes the magic of branding ("magic" in both the laudatory and
+ * pejorative senses of the word). We're pretending with the `as`
+ * operator that there's an extra `__brand` property on this type at
+ * compile time that does not actually exist at runtime.
  */
 
 const centimeters = (unitless: number): Centimeters =>

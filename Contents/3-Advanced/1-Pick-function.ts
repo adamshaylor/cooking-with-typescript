@@ -31,8 +31,8 @@ const pick = <
  * with it. Though it might make sense to make the language permissive
  * by default, there may be cases where we could over-pick and fall out
  * of conformance with some external schema or create unintended memory
- * management problems. It would be nice to at least have the option.
- * There is an open request to support exact types here:
+ * management problems. It would be nice to at least have the option to
+ * be strict. There is an open request to support exact types here:
  * 
  * https://github.com/Microsoft/TypeScript/issues/12936
  */
