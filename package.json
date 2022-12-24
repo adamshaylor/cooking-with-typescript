@@ -1,6 +1,6 @@
 {
   "name": "cooking-with-typescript",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A collection of patterns for TypeScript 4.9",
   "type": "module",
   "scripts": {
